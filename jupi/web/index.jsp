@@ -6,13 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-<<<<<<< HEAD
 	/* location.href="GanyServlet?command=gany_list"; */
 	location.href="CallServlet?command=call_list";
 	 /* location.href="EuroServlet?command=euro_list"; */
-=======
-	location.href="GanyServlet?command=gany_list"; 
->>>>>>> refs/remotes/origin/master
 </script>
 </head>
 <body>

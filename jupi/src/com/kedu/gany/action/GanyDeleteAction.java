@@ -29,20 +29,6 @@ public class GanyDeleteAction implements Action {
 		} else {
 			json.put("msg", "fail");
 		}
-//=======
-//import com.kedu.gany.dao.GanyDao;
-//
-//public class GanyDeleteAction implements Action {
-//
-//	@Override
-//	public void execute(HttpServletRequest request, HttpServletResponse response) 
-//			throws ServletException, IOException {
-//		String empno = request.getParameter("empno");
-//		
-//		GanyDao gaDao = GanyDao.getInstance();
-//
-//		gaDao.deleteGany(empno);
-//>>>>>>> refs/remotes/origin/master
 		
 		new GanyListAction().execute(request, response);
 	}

@@ -27,24 +27,6 @@ public class GanyListAction implements Action {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
-//=======
-//
-//
-//public class GanyListAction implements Action {
-//
-//	@Override
-//	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		String url = "/gany/ganyList.jsp";
-//		
-//		GanyDao gaDao = GanyDao.getInstance();
-//		
-//		List<GanyDto> gaList = gaDao.selectAllGany();
-//		
-//		request.setAttribute("gaList", gaList);
-//		
-//		RequestDispatcher dispztcher = request.getRequestDispatcher(url);
-//		dispztcher.forward(request, response);
-//>>>>>>> refs/remotes/origin/master
 		
 	}
 
