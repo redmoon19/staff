@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kedu.gany.dao.GanyDao;
 import com.kedu.gany.dto.GanyDto;
+//<<<<<<< HEAD
+import com.kedu.util.Action;
 
 
 public class GanyViewAction implements Action {
@@ -22,9 +24,27 @@ public class GanyViewAction implements Action {
 		
 		GanyDao gaDao = GanyDao.getInstance();
 		
-		GanyDto gaDto = gaDao.selectOneGanyByEmpno(empno);
+		GanyDto gaDto = gaDao.selectOneByEmpno(empno);
 		
-		request.setAttribute("ga", gaDto);
+		request.setAttribute("gany", gaDto);
+//=======
+//
+//
+//public class GanyViewAction implements Action {
+//
+//	@Override
+//	public void execute(HttpServletRequest request, HttpServletResponse response) 
+//			throws ServletException, IOException {
+//		String url = "/gany/ganyView.jsp";
+//		
+//		String empno = request.getParameter("empno");
+//		
+//		GanyDao gaDao = GanyDao.getInstance();
+//		
+//		GanyDto gaDto = gaDao.selectOneGanyByEmpno(empno);
+//		
+//		request.setAttribute("ga", gaDto);
+//>>>>>>> refs/remotes/origin/master
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
