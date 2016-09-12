@@ -449,4 +449,119 @@ public class GanyDao {
 		
 	}
 	
+	/*페이징
+	public paging(){
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		
+		//1. 총레코드 수를 구한다.
+		int totalRecord = 0; //총레코드 수
+		try {
+			con = DBManager.getConnection();
+			sql = "select count(*) from emp";
+			stmt = con.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			rs.next();
+			totalRecord = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, stmt, rs);
+		}
+		
+		
+		//2. 페이지당 보일 레코드 수를 결정하고 총 페이지 수를 구한다.
+		int numPerPage = 10; //한 페이지에서 보일 레코드 수
+		int totalPage = 0; // 총 페이지 수
+		if (totalRecord != 0) {
+			if (totalRecord % numPerPage == 0) {
+				totalPage = totalRecord / numPerPage;
+			} else {
+				totalPage = totalRecord / numPerPage + 1;
+			}
+		}
+		
+		//3.첫번째 레코드 번호와 마지막 레코드 번호를 구한다
+		int curPage = request.getParameter("curPage") == null
+			? 1 : Integer.parseInt(request.getParameter("curPage"));
+		//시작 레코드 계산
+		int start = (curPage -1) * numPerPage + 1;
+		//마지막 레코드 계산
+		int end = start + numPerPage -1 ;
+		//해당 페이지의 레코드 셋을 구한 후 출력 한다.
+		
+		try {
+			con = DBManager.getConnection();
+			sql = "SELECT empno, deptno, jobno, id, pswd, ename		"
+				+ ", fjumin, bjumin, hiredate, resigndate, email	"
+				+ ", zipcode, addr, deaddr, sal, etc, eregdate		"
+				+ ", epic, admin FROM (								"
+					+ "SELECT ROWNUM R, A.* FROM (					" 
+						+ "SELECT empno, deptno, jobno, id, pswd, ename		"
+						+ ", fjumin, bjumin, hiredate, resigndate, email	"
+						+ ", zipcode, addr, deaddr, sal, etc, eregdate		"
+						+ ", epic, admin									" 
+						+ "FROM emp ORDER BY empno DESC) A)					"
+						+ "WHERE R BETWEEN ? AND ?							";
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, start);
+			stmt.setInt(2, end);
+			rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				String empno = rs.getString("empno");
+				String deptno = rs.getString("deptno");
+				String jobno = rs.getString("jobno");
+				String id = rs.getString("id");
+				String pswd = rs.getString("pswd");
+				String ename = rs.getString("ename");
+				String fjumin = rs.getString("fjumin");
+				String bjumin = rs.getString("bjumin");
+				String hiredate = rs.getString("hiredate");
+				String resigndate = rs.getString("resigndate");
+				String email = rs.getString("email");
+				String zipcode = rs.getString("zipcode");
+				String addr = rs.getString("addr");
+				String deaddr = rs.getString("deaddr");
+				int sal = rs.getInt("sal");
+				String etc = rs.getString("etc");
+				String eregdate = rs.getString("eregdate");
+				String epic = rs.getString("epic");
+				String admin = rs.getString("admin");
+			}
+				
+				반복문 출력>
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, stmt, rs);
+		}
+		
+		//4. 각 페이지에 대한 직접 이동 링크를 만든다.
+		int pagePerBlock 	= 5;//블록당 페이지수를 저장할 변수와 초기화
+		int block			= 1;//현재 블록 저장 변수와 초기화
+		
+		if(curPage % pagePerBlock == 0) {
+			block = curPage / pagePerBlock;
+		} else {
+			block = curPage / pagePerBlock + 1;
+		}
+		
+		int firstPage = (block - 1) * pagePerBlock + 1;
+		int lastPage = block * pagePerBlock;
+		
+		int totalBlock = 0;
+		
+		if(totalPage > 0) {
+			if(totalPage % pagePerBlock == 0) {
+				totalBlock = totalPage / pagePerBlock;
+			}else {
+				totalBlock = totalPage / pagePerBlock + 1;
+			}
+		}
+		
+	} */
 }
